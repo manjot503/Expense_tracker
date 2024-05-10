@@ -1,0 +1,52 @@
+*{
+    margin: 0%;
+    /* padding: 0%; */
+}
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: cadetblue;
+    text-align: center;
+    height: 4rem;
+    
+
+}
+ul{
+    display: flex;
+    margin-top: 19px;
+   
+}
+li{
+    list-style: none;
+    margin-left: 3rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+.button{
+    border-radius: 5px;
+   margin-top: 9px;
+   margin-left: 1rem;
+    margin-right: 3rem;
+    cursor: pointer;
+  background-color:darkred;
+  height: 3rem;
+  font-size: 1rem;
+
+
+    
+
+}
+.logo{
+    position: absolute;
+    top:-8px;
+    margin-top: 19px;
+
+    margin-left: 3rem;
+}
+
+@media (max-width: 768px) {
+    Navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,52 @@
+.form{
+    border: 2px solid black;
+    /* text-align: center; */
+    display: grid;
+    justify-content: center;
+    padding: 1px 10px 15px 10px;
+    width: 25rem;
+    border-radius: 1rem;
+    /* background-color: cadetblue; */
+    
+}
+.formcenter{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.formname{
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+.forminput{
+   width: 23rem;
+   height: 2rem;
+   border: 1px solid black;
+   border-radius: 8px;
+   margin-top: 5px;
+
+
+}
+.formbuttton{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width:10rem;
+    height: 2rem;
+    font-size:  1.5rem;
+    background-color: cadetblue;
+    border-color: cadetblue;
+    border-radius: 10px;
+
+}
+.formbutttonn{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width:10rem;
+    height: 2rem;
+    font-size:  1.5rem;
+    background-color: cadetblue;
+    border-color: cadetblue;
+    border-radius: 10px;
+
+
+}
