@@ -18,4 +18,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("user",userSchema)
 
-module.exports={User}
+
+const addSchema = new mongoose.Schema
+({
+  userId:String,
+  title:String,
+  money:Number,
+  date:Date
+})
+const Add = mongoose.model("add",addSchema)
+
+module.exports={User,Add}

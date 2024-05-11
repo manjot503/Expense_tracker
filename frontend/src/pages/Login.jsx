@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import './signup.css'
+import './signup.css';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
+axios.defaults.baseURL = "http://localhost:5100/";
+
 export default function Login() {
     const [data,setData]= useState({
         email:"",
@@ -7,6 +12,7 @@ export default function Login() {
         
     })
     const[errors,setErrors]=useState({})
+    const navigate = useNavigate()
 
     const handleChange = (e)=>{
         const{name,value}=e.target;
@@ -34,11 +40,28 @@ export default function Login() {
         }      
    
         setErrors(errors)
-    }
+
+        
+        if (Object.keys(errors).length === 0) {
+            try {
+                const response = await axios.post("user/login", data);
+                // console.log(response.data.token);
+                localStorage.setItem("token",response.data.token)
+
+                navigate("/");
+            } catch (error) {
+                console.error("Error:", error);
+                alert("user not found ")         
+            }
+
+        }
+    };
+    
   return (
     <>
     <div className='formcenter'>
         <form onSubmit={handleSubmit} className='form'>
+        <h1 className='h'>Login</h1>
 
       <LabeledInput type="email" name="email" placeholder="Email" onChange={handleChange} value={data.email} error={errors.email} />
 

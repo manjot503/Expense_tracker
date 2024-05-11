@@ -3,7 +3,8 @@ const cors= require("cors")
 const zod = require("zod");
 const bcrypt = require("bcryptjs")
 const  jwt = require("jsonwebtoken")
-const {User} = require("../db")
+const {User} = require("../db");
+const Auth = require("../middleware/auth");
 
 const app =express();
 app.use(cors());
@@ -84,5 +85,7 @@ userRouter.post("/login",async(req,res)=>{
         return res.status(404).json({msg:"login error"})
     }
 })
+
+
 
 module.exports= userRouter

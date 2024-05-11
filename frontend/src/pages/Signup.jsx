@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './signup.css'
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:5100/";
 export default function Signup() {
     const [data,setData]= useState({
         firstName:"",
@@ -10,6 +14,7 @@ export default function Signup() {
         confirmPassword:""
     })
     const[errors,setErrors]=useState({})
+    const navigate = useNavigate()
 
     const handleChange = (e)=>{
         const{name,value}=e.target;
@@ -54,7 +59,31 @@ export default function Signup() {
             errors.confirmPassword="Passwords do not match"
         }
         setErrors(errors)
-    }
+
+        if (Object.keys(errors).length === 0) {
+            try {
+                const response = await axios.post("user/signup", data);
+                // console.log(response.data.token);
+                localStorage.setItem("token",response.data.token)
+
+                setData({
+                    firstName:'',
+                    lastName:'',
+                    userName: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: ''
+                });
+                
+                navigate("/login");
+            } catch (error) {
+                console.error("Error:", error);
+                alert("email id already exist")         
+            }
+
+        }
+    };
+    
   return (
     <>
     <div className='formcenter'>

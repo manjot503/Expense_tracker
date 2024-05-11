@@ -36,6 +36,7 @@
     background-color: cadetblue;
     border-color: cadetblue;
     border-radius: 10px;
+    cursor: pointer;
 
 }
 .formbutttonn{
@@ -47,6 +48,10 @@
     background-color: cadetblue;
     border-color: cadetblue;
     border-radius: 10px;
+    cursor: pointer;
 
 
+}
+.h{
+    margin-top: 10px;
 }
