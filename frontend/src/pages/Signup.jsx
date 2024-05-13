@@ -63,9 +63,9 @@ export default function Signup() {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("user/signup", data);
-                // console.log(response.data.token);
+                console.log(response.data.token);
                 localStorage.setItem("token",response.data.token)
-
+                localStorage.setItem("name",response.data.name)
                 setData({
                     firstName:'',
                     lastName:'',
@@ -78,7 +78,7 @@ export default function Signup() {
                 navigate("/login");
             } catch (error) {
                 console.error("Error:", error);
-                alert("email id already exist")         
+                alert("email already exist")         
             }
 
         }

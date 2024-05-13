@@ -50,10 +50,18 @@ li{
     margin-left: 3rem;
 }
 .avtar{
-    position: absolute;
-    right: 150px;
-    border: none;
-    font-size: large;
+   border: 2px solid black;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+    font-size: 25px;
+    margin-top: -10px;
+    background-color: rgb(198, 154, 240);
+    border-color: blueviolet;
+    color: black;
+   padding-top:7px ;
+   padding-left: 5px;
+   padding-right: 5px;
 }
 .mobile,menu{
     display: none;
@@ -61,6 +69,7 @@ li{
 .menu{
     display: none
 }
+
 
 @media screen and (max-width: 800px) {
     .logo {

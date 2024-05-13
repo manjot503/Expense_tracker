@@ -4,26 +4,44 @@ import { useRecoilState } from "recoil"
 import { pageState } from "../../state";
 import { useNavigate } from "react-router-dom";
 import { HiOutlineMenu } from "react-icons/hi";
-// import { FaBookSkull } from "react-icons/fa6";
+import { FaBookSkull } from "react-icons/fa6";
 export default function Navbar(){
     const [page,setPage]= useRecoilState(pageState)
     const [mobile,setMobile] = useState(false)
+    const[login,setLogin] = useState(false)
+    const navigate = useNavigate();
+   
 
     const handleclick = ()=>{
         setMobile(false);
     }
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            setLogin(true)
+        }
+    })
+    const avtar = localStorage.getItem("name")?.slice(0,1);
 
+    function logout(){
+        localStorage.removeItem("token")
+        setLogin(false)
+        navigate("/")
+    }
 
     return(
         <>
         <div className="Navbar">
             <div >
-                <h1 className="logo">QuickBooks</h1>
+                <h1 className="logo">QuickBooks<FaBookSkull/></h1>
             </div>
        
             <div >
                 <ul className="text">
-                    <li>Avtar</li>
+                {
+                    login?(
+                        <li className="avtar">{avtar}</li>
+                    ):null
+                 } 
                     <li onClick={()=>{setPage("home"); handleclick();}} >Home</li>
                     <li onClick={()=>{setPage("add");handleclick();}}>Add</li>
                     <li onClick={()=>{setPage("visualize");handleclick();}}>Visualize</li>
@@ -31,7 +49,13 @@ export default function Navbar(){
                     
             </div>
             <div>
-            <button className="button">LogOut</button>
+           
+            {
+                login?(
+                    <button className="button" onClick={logout}>LogOut</button>
+                ):null
+            }
+             {/* <button className="button" onClick={logout}>LogOut</button> */}
             <button className="menu" onClick={()=>setMobile(!mobile)}><HiOutlineMenu /></button>
             </div>
             

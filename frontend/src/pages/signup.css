@@ -55,3 +55,34 @@
 .h{
     margin-top: 10px;
 }
+.formotp{
+     /* display: inline; */
+     text-align: center;
+     justify-content: space-between;
+     margin-left: 2.7rem;
+    margin-top: 20px;
+     padding:center;
+     align-items: center;
+     width: 2rem;
+    height: 3rem;
+    border-radius: 8px;
+ background-color: transparent;
+}
+.otp{
+    display: flex
+}
+
+.formfrom{
+    border: 2px solid black;
+    /* text-align: center; */
+ margin-top: 20px;
+    justify-content: center;
+    padding: 1px 10px 15px 10px;
+    width: 25rem;
+    border-radius: 1rem;
+
+}
+.hotp{
+    margin-top: 10px;
+    margin-left: 10px;
+}

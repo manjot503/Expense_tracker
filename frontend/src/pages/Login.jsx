@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './signup.css';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 axios.defaults.baseURL = "http://localhost:5100/";
 
@@ -47,6 +47,7 @@ export default function Login() {
                 const response = await axios.post("user/login", data);
                 // console.log(response.data.token);
                 localStorage.setItem("token",response.data.token)
+                localStorage.setItem("name",response.data.name)
 
                 navigate("/");
             } catch (error) {
@@ -65,8 +66,9 @@ export default function Login() {
 
       <LabeledInput type="email" name="email" placeholder="Email" onChange={handleChange} value={data.email} error={errors.email} />
 
+    
       <LabeledInput type="password" name="password" placeholder="Password" onChange={handleChange} value={data.password} error={errors.password} />
-
+      <Link to="/email"><p>Forgot Password</p></Link>   
      
 
       <div>

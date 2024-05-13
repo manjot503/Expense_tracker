@@ -33,5 +33,17 @@ expenseRouter.post('/add',Auth,async(req,res)=>{
     }
 })
 
+expenseRouter.get("/alladd",Auth,async(req,res)=>{
+  try {
+    const response = await Add.find({
+      userId:req.userId
+    })
+   
+    return res.json({expense:response})
+  } catch (error) {
+    return res.status(403).json({msg:"error while fetching add"})
+    
+  }
+})
 
-module.exports = expenseRouter
+module.exports = expenseRouter 
