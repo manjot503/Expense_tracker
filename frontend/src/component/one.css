@@ -56,12 +56,12 @@ li{
    height: 40px;
     font-size: 25px;
     margin-top: -10px;
-    background-color: rgb(198, 154, 240);
-    border-color: blueviolet;
+    background-color: #c5c0c0;
+    border-color: black;
     color: black;
-   padding-top:7px ;
-   padding-left: 5px;
-   padding-right: 5px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;    
 }
 .mobile,menu{
     display: none;

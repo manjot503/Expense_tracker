@@ -24,6 +24,8 @@
    border: 1px solid black;
    border-radius: 8px;
    margin-top: 5px;
+   padding-left: 2px;
+   
 
 
 }
@@ -85,4 +87,13 @@
 .hotp{
     margin-top: 10px;
     margin-left: 10px;
+}
+.formselect{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* width: 100px; */
+   width: 23rem;
+border: 1px solid black;
+    height: 2rem;
+    border-radius: 8px;
 }

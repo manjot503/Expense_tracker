@@ -24,7 +24,7 @@ const addSchema = new mongoose.Schema
   userId:String,
   title:String,
   money:Number,
-  date:Date
+  date:String
 })
 const Add = mongoose.model("add",addSchema)
 

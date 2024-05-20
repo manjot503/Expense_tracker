@@ -101,7 +101,8 @@ export default function Signup() {
       <LabeledInput type="password" name="confirmPassword" placeholder="ConfirmPassword" onChange={handleChange} value={data.confirmPassword} error={errors.confirmPassword} />
       <div>
       <button type='submit'className='formbuttton' >Submit</button>
-         <button className='formbutttonn'>login</button>
+         {/* <button className='formbutttonn'>Allready login</button> */}
+         <p>Allready login</p>
 </div>
    
         </form>

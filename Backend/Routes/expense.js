@@ -21,7 +21,7 @@ expenseRouter.post('/add',Auth,async(req,res)=>{
         title:body.title,
         money:body.money,
         userId:req.userId,
-        date:Date.now()
+        date:body.date
 
 
         })

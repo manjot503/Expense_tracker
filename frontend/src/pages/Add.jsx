@@ -11,10 +11,13 @@ axios.defaults.baseURL = "http://localhost:5100/";
 export default function Add() {
   const[page,setPage] = useRecoilState(pageState)
   const [title, setTitle] = useState("");
-  const [tempMoney,settempMoney] = useState(0)
+  const [tempMoney,settempMoney] = useState("")
+  const [date,setDate]=useState(new Date().toISOString().slice(0, 10))
   const [type,setType] = useState(false)
   const [errors, setErrors] = useState({});
+  
   const navigate = useNavigate();
+  
 
   useEffect(()=>{
     if(!localStorage.getItem("token")){
@@ -33,6 +36,9 @@ export default function Add() {
     if (!tempMoney) {
       errors.tempMoney = "tempMoney is required";
     } 
+    if(!date){
+      errors.date = "date is required"
+    }
  
 
     setErrors(errors);
@@ -45,7 +51,7 @@ export default function Add() {
         money= parseInt(tempMoney)
       }
       try {
-        const response = await axios.post("/exp/add", {title,money},{
+        const response = await axios.post("/exp/add", {title,money,date},{
           headers:{
             authorization: localStorage.getItem("token")
           }
@@ -65,7 +71,7 @@ export default function Add() {
       
       <br></br>
       <form onSubmit={handleSubmit} className='form'>
-      <h2>Add Expense</h2>
+      <h1 className='h'>Add Expense</h1>
        
           <label className='formname'>Title</label>
           <input
@@ -78,15 +84,25 @@ export default function Add() {
           />
           {errors.title && <span className="error">{errors.title}</span>}
         
-        <div className="formselect">
-          <select onChange={(e)=>setType(e.target.value)} >
-          <option >Select</option>
+        
+          <label className='formname'>Spend/Earn</label>
+          
+          <select onChange={(e)=>setType(e.target.value)} className="forminput">
+          <option  >Select</option>
             <option value="spend">Spend</option>
             <option value="earn">Earn</option>
           </select>
-        </div>
+      
+
         
-          <label className='formname'>tempMoney</label>
+        <label className='formname'>Date</label>
+
+          <input className='forminput' onChange={(e)=>setDate(e.target.value)} name='date' value={date} type='date' placeholder='Date' />
+          {errors.date && <span className="error">{errors.date}</span>}
+
+        
+        
+          <label className='formname'>Expense Amount</label>
           <input
             type="number"
             name="tempMoney"
