@@ -12,10 +12,7 @@ const Visualize = () => {
   const month = date.getMonth();
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  let spend = 0
-  let earn = 0
-
-
+ 
   const monthlyExpenditure = data.filter((item) => parseInt(item.date.slice(5, 7)) === month + 1)
 
 
@@ -23,9 +20,10 @@ const Visualize = () => {
 
   const today = date.getDate();
   const todayData = data.filter((item) =>
-    (parseInt(item.date.slice(5, 7)) === month + 1)
+    parseInt(item.date.slice(5, 7)) === month + 1
     &&
-    (parseInt(item.date.slice(8, 10)) === today))
+    parseInt(item.date.slice(8, 10)) === today
+  )
 
   //filter week data
 
@@ -37,7 +35,8 @@ const Visualize = () => {
     &&
     (parseInt(item.date.slice(8, 10)) <= today))
 
-
+    let spend = 0;
+    let earn = 0;
 
  
     if (select === "month") {
@@ -59,7 +58,7 @@ const Visualize = () => {
       }
   
     }
-    else if (select === "day") {
+    else if (select === "today") {
     
       todayData.forEach((item) => {
         if (item.money > 0) {
@@ -94,7 +93,7 @@ const Visualize = () => {
         earn = 0
       }
     }
-  // },[select]) 
+  
 
   useEffect(()=>{
   if(select === "month"){
@@ -123,8 +122,10 @@ const Visualize = () => {
       <div className="viusualizeNav">
         <div className="tablevius">
           <ul>
-            <li className={`livisu ${select === "day" ? "active" : null}`} onClick={() => { setSelect("day") }}>Day</li>
+            <li className={`livisu ${select === "today" ? "active" : null}`} onClick={() => { setSelect("today") }}>TODay</li>
+
             <li className={`livisu ${select === "week" ? "active" : null}`} onClick={() => { setSelect("week") }}>Week</li>
+
             <li className={`livisu ${select === "month" ? "active" : null}`} onClick={() => { setSelect("month") }}>Month</li>
           </ul>
         </div>
@@ -136,7 +137,8 @@ const Visualize = () => {
         </div>
         <div >
           <Doughnutchart values={values} title="current month expenditure" />
-        </div>
+        </div >
+        
         <div><h2>Spend percentage : {spendp.toFixed(0)}%</h2></div>
         <div><h2>Earn percentage : {earnp.toFixed(0)}%</h2></div>
       </div>
@@ -144,7 +146,7 @@ const Visualize = () => {
 
       <div className="formcenter">
    
-
+    {user && user.length > 0 ? (
    <table className="table">
        <thead>
            <tr>
@@ -170,7 +172,9 @@ user.map((item,index)=>(
 
 </table>
 
-
+):
+(<h4>No data found</h4>)
+}
 </div>
     </>
   )

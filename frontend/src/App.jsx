@@ -29,6 +29,7 @@ export default function App() {
        <Route path="/email" element={<Email />}></Route>
        <Route path="/otp" element={<Otp />}></Route>
        <Route path="/reset" element={<Resetpass />}></Route>
+       
 
 
 

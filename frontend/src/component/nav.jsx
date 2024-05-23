@@ -42,9 +42,11 @@ export default function Navbar(){
                         <li className="avtar">{avtar}</li>
                     ):null
                  } 
-                    <li className={`linav ${page === "home"?"active":null}`} onClick={()=>{setPage("home"); handleclick();}}  >Home</li>
-                    <li className={`linav ${page === "add"?"active":null}`} onClick={()=>{setPage("add");handleclick();}}>Add</li>
-                    <li className={`linav ${page === "visualize"?"active":null}`} onClick={()=>{setPage("visualize");handleclick();}}>Visualize</li>
+            <li className={`linav ${page === "home"?"active":null}`} onClick={()=>{setPage("home"); handleclick();}}  >Home</li>
+            <li className={`linav ${page === "add"?"active":null}`} onClick={()=>{setPage("add");handleclick();}}>Add</li>
+            <li className={`linav ${page === "visualize"?"active":null}`} onClick={()=>{setPage("visualize");handleclick();}}>Visualize</li>
+            <li className={`linav ${page === "insights"?"active":null}`} onClick={()=>{setPage("insights");handleclick();}}>Insights</li>
+              
                 </ul>
                     
             </div>

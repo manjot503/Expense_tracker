@@ -12,9 +12,7 @@ export default function Home(){
     const[data,setData]=useRecoilState(dataState)
     const [add,setAdd]= useState([]);
     const[total,setTotal]= useState(0)
-    const date = new Date();
-    const month = date.getMonth();
-    var months=["january","February","March","April","May","june","July","August","September","October","November","December"]
+   
 
     useEffect(()=>{
         async function ServerCall(){
@@ -39,24 +37,39 @@ export default function Home(){
       
     },[]);
 
-  
+    const date = new Date();
+    const month = date.getMonth();
+    var months=["january","February","March","April","May","june","July","August","September","October","November","December"]
+
+    const monthlyData = add.filter((item) => parseInt(item.date.slice(5, 7)) === month+1 )
 
     useEffect(()=>{
         let temptotal= 0
-        add.forEach((item)=>{
-            if(parseInt(item.date?.slice(5,7))===month+1){
+        monthlyData.forEach((item)=>{
+            // if(parseInt(item.date?.slice(5,7))===month)
+                {
             temptotal+=item.money;}
         })
         setTotal(temptotal)
-    },[add])
+    },[monthlyData])
 return(
     <>
+
+
     <div className="tablemoney">
         <h1 className="formcenter">Transactions</h1>
    <h2 className="formcenter">{months[month]}:<span className={`total${total < 0 ? 'negative' : 'positive'}`}>₹{total}</span></h2>
+   <div className="formcenter">
+   <label>From:</label>
+        <input type="text" className="from"/>
+        <label>To:</label>
+        <input type="text" className="to"/>
+   </div>
+
+
    </div>
     <div className="formcenter">
-   
+    {monthlyData && monthlyData.length > 0 ? (
 
         <table className="table">
             <thead>
@@ -70,7 +83,7 @@ return(
             </thead>
         <tbody>
    {
-    add.map((item,index)=>(
+    monthlyData.map((item,index)=>(
         <tr key={index}>
            <td className="th"> {index+1}</td>
            <td className="th"> {item.title}</td>
@@ -81,7 +94,9 @@ return(
    }
    </tbody>
  
-   </table>
+   </table>):
+   (<h4>NO Data Found</h4>)
+   }
 
 
     </div>
@@ -89,3 +104,6 @@ return(
     </>
 )
 }
+
+
+
