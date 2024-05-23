@@ -3,13 +3,13 @@ import axios from "axios";
 import { useEffect, useState } from "react"; 
 import "./one.css"
 import { useRecoilState } from "recoil";
-import { dateState } from "../../state";
-// import Addhome from "./Addhome";
+import { dataState } from "../../state";
+
 
 axios.defaults.baseURL = "http://localhost:5100/";
 
 export default function Home(){
-    const[data,setData]=useRecoilState(dateState)
+    const[data,setData]=useRecoilState(dataState)
     const [add,setAdd]= useState([]);
     const[total,setTotal]= useState(0)
     const date = new Date();
@@ -24,14 +24,15 @@ export default function Home(){
         }
         
      });
-     setAdd(response.data.expense);
+    //  setAdd(response.data.expense);
      
      const sortedDate = response.data.expense.sort((a,b)=>{
-        const dateA= new Date(a-date)
-        const dateB = new Date(b-date)
+        const dateA= new Date(a.date)
+        const dateB = new Date(b.date)
         return dateB.getTime()-dateA.getTime()
     }) 
     setAdd(sortedDate)
+    setData(sortedDate)
         } 
      
         ServerCall();
@@ -61,7 +62,6 @@ return(
             <thead>
                 <tr>
                 <th className="th">SNo.</th>
-
                 <th className="th">Title</th>
                 <th className="th">Expense</th>
                 <th className="th">Date</th>
@@ -73,9 +73,8 @@ return(
     add.map((item,index)=>(
         <tr key={index}>
            <td className="th"> {index+1}</td>
-          <td className="th"> {item.title}</td>
+           <td className="th"> {item.title}</td>
            <td className={`${item.money <0 ? 'negative': 'positive'}`} > <b>{item.money}</b></td>
-
            <td className="th "> {item.date?.slice(0,10)}</td>
         </tr>
     ))

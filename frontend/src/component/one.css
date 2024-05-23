@@ -22,13 +22,21 @@ ul{
     margin-top: 1.5rem;
    
 }
-li{
+.linav{
     
    
     list-style: none;
     margin-left: 4rem;
+
     cursor: pointer;
     font-size: 1.3rem;
+}
+.linav:hover{
+    color: rgb(13, 13, 218);
+}
+.active{
+    color: rgb(13, 13, 218);
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 .button{
     padding: 8px 14px;

@@ -5,7 +5,7 @@ export const pageState = atom({
     default:"home"
 })
 
-export const dateState= atom({
-    key:"dateState",
+export const dataState= atom({
+    key:"dataState",
     default:[]
 })
