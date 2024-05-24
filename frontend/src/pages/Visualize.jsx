@@ -139,8 +139,19 @@ const Visualize = () => {
           <Doughnutchart values={values} title="current month expenditure" />
         </div >
         
-        <div><h2>Spend percentage : {spendp.toFixed(0)}%</h2></div>
-        <div><h2>Earn percentage : {earnp.toFixed(0)}%</h2></div>
+ {
+  user && user.length >0 ?(
+    <div><h2>Spend percentage : {spendp.toFixed(0)}%</h2></div>
+  ):null
+ }
+        
+        {
+  user && user.length >0 ?(
+    <div><h2>Earn percentage : {earnp.toFixed(0)}%</h2></div>
+  ):null
+ }
+         
+  
       </div>
 
 

@@ -13,6 +13,12 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    
+}
+.formcentersignup{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }
 .formname{
     font-size: 1rem;
@@ -96,4 +102,7 @@
 border: 1px solid black;
     height: 2rem;
     border-radius: 8px;
+}
+.forgot{
+    margin-top: 10px;
 }

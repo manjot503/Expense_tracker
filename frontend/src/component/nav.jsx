@@ -42,6 +42,8 @@ export default function Navbar(){
                         <li className="avtar">{avtar}</li>
                     ):null
                  } 
+         
+              
             <li className={`linav ${page === "home"?"active":null}`} onClick={()=>{setPage("home"); handleclick();}}  >Home</li>
             <li className={`linav ${page === "add"?"active":null}`} onClick={()=>{setPage("add");handleclick();}}>Add</li>
             <li className={`linav ${page === "visualize"?"active":null}`} onClick={()=>{setPage("visualize");handleclick();}}>Visualize</li>
@@ -51,6 +53,8 @@ export default function Navbar(){
                     
             </div>
             <div>
+      
+       
            
             {
                 login?(
@@ -67,7 +71,7 @@ export default function Navbar(){
 
       {mobile &&   <div className="mobile">
                 <ol className="mobile-link">
-                    <li>Avtar</li>
+                    
                     <li onClick={()=>{setPage("home"); handleclick();}}>Home</li>
                     <li onClick={()=>{setPage("add"); handleclick();}}>Add</li>
                     <li onClick={()=>{setPage("visualize"); handleclick();}}>Visualize</li>

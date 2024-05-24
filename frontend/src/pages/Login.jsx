@@ -49,7 +49,7 @@ export default function Login() {
                 localStorage.setItem("token",response.data.token)
                 localStorage.setItem("name",response.data.name)
 
-                navigate("/");
+                navigate("/landing");
             } catch (error) {
                 console.error("Error:", error);
                 alert("user not found ")         
@@ -68,12 +68,12 @@ export default function Login() {
 
     
       <LabeledInput type="password" name="password" placeholder="Password" onChange={handleChange} value={data.password} error={errors.password} />
-      <Link to="/email"><p>Forgot Password</p></Link>   
+      <Link to="/email" className='forgot'><p>Forgot Password ?</p></Link>   
      
 
       <div>
       <button type='submit'className='formbuttton' >Submit</button>
-         <button className='formbutttonn'>New user</button>
+        <Link to="/signup"><button className='formbutttonn'>New user</button></Link> 
 </div>
    
         </form>

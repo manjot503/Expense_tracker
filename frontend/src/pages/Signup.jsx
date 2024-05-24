@@ -86,7 +86,7 @@ export default function Signup() {
     
   return (
     <>
-    <div className='formcenter'>
+    <div className='formcentersignup'>
         <form onSubmit={handleSubmit} className='form'>
       <LabeledInput type="text" name="firstName" placeholder="FirstName" onChange={handleChange} value={data.firstName} error={errors.firstName} letter={capitalizeFirstLetter} />
 
@@ -102,7 +102,7 @@ export default function Signup() {
       <div>
       <button type='submit'className='formbuttton' >Submit</button>
          {/* <button className='formbutttonn'>Allready login</button> */}
-         <p>Allready login</p>
+         
 </div>
    
         </form>
