@@ -92,10 +92,10 @@ return(
         <h1 className="formcenter">Transactions</h1>
    <h2 className="formcenter">{months[month]}:<span className={`total${total < 0 ? 'negative' : 'positive'}`}>₹{total}</span></h2>
    <div className="formcenter">
-   <label>From:</label>
+   <label className="name">From:</label>
         <input type="date" className="from" value={fromdate} onChange={(e)=> setFromdate(e.target.value)}/>
        
-    <label>To:</label>
+    <label  className="name">To:</label>
         <input type="date" className="to" value={todate} onChange={(e)=>setTodate(e.target.value)}/>
         
         
@@ -123,7 +123,7 @@ return(
         <tr key={index}>
            <td className="th"> {index+1}</td>
            <td className="th"> {item.title}</td>
-           <td className={`${item.money <0 ? 'negative': 'positive'}`} > <b>{item.money}</b></td>
+           <td className={`${item.money <0 ? 'negative': 'positive'}`} > <b>₹{item.money}</b></td>
            <td className="th "> {item.date?.slice(0,10)}</td>
         </tr>
     ))

@@ -9,7 +9,12 @@
     align-items: center;
     text-align: center;
   overflow: hidden;
+  cursor: pointer;
 
+}
+.table:hover{
+    transform: scale(1.1);
+    transition: 0s;
 }
 .box{
     height: 400px;
@@ -126,22 +131,37 @@ tbody {
     list-style: none;
     margin-left: 7rem;
     margin-top: -10px;
+    padding-bottom: 10px;
     cursor: pointer;
     font-size: 1.3rem;
     text-align: center;
-
+    
+ 
 
 }
 
 .livisu:hover {
     color: rgb(13, 13, 218);
+    transform: scale(1.1);
+    transition: 0s;
+  ;
 }
 
 .active {
     color:rgb(13, 13, 218);
+    /* background-color: blue;
+    height: 2px;
+    bottom: 0px; */
+   
 
-        /* background-color: blue;
-        height: 3px; */
-    bottom: 0px;
+}
 
+
+.formcenterform{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+    
 }

@@ -75,7 +75,7 @@ export default function Signup() {
                     confirmPassword: ''
                 });
                 
-                navigate("/login");
+                navigate("/");
             } catch (error) {
                 console.error("Error:", error);
                 alert("email already exist")         

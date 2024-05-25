@@ -50,7 +50,7 @@ export default function Resetpass(){
             })
             localStorage.clear()
             alert("password updated successfully")
-            navigate("/login")
+            navigate("/")
         } catch (error) {
             console.log("Errors",error)
         alert("error while updateing")

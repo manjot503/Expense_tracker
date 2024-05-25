@@ -58,7 +58,7 @@ export default function Navbar(){
            
             {
                 login?(
-                    <button className="button" onClick={logout}>LogOut</button>
+                    <button className="button" onClick={ logout }>LogOut</button>
                 ):null
             }
              {/* <button className="button" onClick={logout}>LogOut</button> */}

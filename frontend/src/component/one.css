@@ -31,12 +31,15 @@ ul{
     cursor: pointer;
     font-size: 1.3rem;
 }
+
 .linav:hover{
     color: rgb(13, 13, 218);
+    transform: scale(1.1);
+    transition: 0s;
 }
 .active{
     color: rgb(13, 13, 218);
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .button{
     padding: 8px 14px;
@@ -49,6 +52,10 @@ ul{
   background-color:darkred;
   height: 3rem;
   font-size: 1rem;
+}
+.button:hover{
+    transform: scale(1.1);
+    transition: 0s;
 }
 .logo{
     position: absolute;
