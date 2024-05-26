@@ -183,14 +183,14 @@ ul{
     
 
 }
-@media screen and(max-width:500px) {
+@media screen and(max-width:300px) {
     .Navbar{
         height: 10px;
         transition: 0.2 ease-in-out;
     }
 
     .logo{
-        font-size: 10px;
+        font-size: 5px;
         top: 16px;
         left: 10px;
         transition: 0.2 ease-in-out;
@@ -208,5 +208,9 @@ ul{
     /* margin-top: -6px; */
     transition: 0.2s ease-in-out;
    }
+   .mobile-link li{
+    display: grid;
+margin: 2px 30px;
+}
     
 }

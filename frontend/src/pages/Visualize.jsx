@@ -121,7 +121,7 @@ const Visualize = () => {
     <>
       <div className="viusualizeNav">
         <div className="tablevius">
-          <ul>
+          <ul className="visul">
             <li className={`livisu ${select === "today" ? "active" : null}`} onClick={() => { setSelect("today") }}>TODay</li>
 
             <li className={`livisu ${select === "week" ? "active" : null}`} onClick={() => { setSelect("week") }}>Week</li>
@@ -135,6 +135,7 @@ const Visualize = () => {
         <div>
           <h1>{months[month]}</h1>
         </div>
+
         <div >
           <Doughnutchart values={values} title="current month expenditure" />
         </div >
