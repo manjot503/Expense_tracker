@@ -30,7 +30,7 @@ export default function Navbar(){
 
     return(
         <>
-        <div className="Navbar">
+        <div className="Navbar fixed-top">
             <div >
                 <h1 className="logo">QuickBooks<FaBookSkull/></h1>
             </div>
@@ -71,11 +71,19 @@ export default function Navbar(){
 
       {mobile &&   <div className="mobile">
                 <ol className="mobile-link">
+                {
+                    login?(
+                        <li className="avtarmob">{avtar}</li>
+                    ):null
+                 } 
                     
-                    <li onClick={()=>{setPage("home"); handleclick();}}>Home</li>
-                    <li onClick={()=>{setPage("add"); handleclick();}}>Add</li>
-                    <li onClick={()=>{setPage("visualize"); handleclick();}}>Visualize</li>
-                    <li>LogOut</li>
+                <li className={`linav ${page === "home"?"active":null}`} onClick={()=>{setPage("home"); handleclick();}}  >Home</li>
+            <li className={`linav ${page === "add"?"active":null}`} onClick={()=>{setPage("add");handleclick();}}>Add</li>
+            <li className={`linav ${page === "visualize"?"active":null}`} onClick={()=>{setPage("visualize");handleclick();}}>Visualize</li>
+            <li className={`linav ${page === "insights"?"active":null}`} onClick={()=>{setPage("insights");handleclick();}}>Insights</li>
+         
+
+              <button className="logoutmob"  onClick={ logout } >  <li >LogOut</li> </button>    
                 </ol>
                     
             </div>

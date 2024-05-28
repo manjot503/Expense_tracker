@@ -12,10 +12,11 @@
   cursor: pointer;
 
 }
-.table:hover{
-    transform: scale(1.1);
+/* .table:hover{
+    cursor: pointer;
+    transform: scale(0.10);
     transition: 0s;
-}
+} */
 .box{
     height: 400px;
 width: 800px;

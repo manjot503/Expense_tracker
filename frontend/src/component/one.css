@@ -8,6 +8,11 @@
     background-color: cadetblue;
     text-align: center;
     height: 5rem;
+  /* overflow: hidden;
+ 
+  position: fixed;
+  top: 0;
+  width: 100%; */
     /* padding: 20px 10px; */
 
 }
@@ -50,6 +55,8 @@ ul{
     /* margin-right: 3rem; */
     cursor: pointer;
   background-color:darkred;
+  border-color: darkred;
+
   height: 3rem;
   font-size: 1rem;
 }
@@ -84,6 +91,33 @@ ul{
 .menu{
     display: none
 }
+.logoutmob{
+    padding: 0px 0px 50px;
+    /* position: absolute; */
+    border-radius: 5px;
+    cursor: pointer;
+  background-color:darkred;
+  height: 3rem;
+  font-size: 1rem;
+  border-color: darkred;
+
+}
+
+.avtarmob{
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+     font-size: 25px;
+     padding: 1px 1px 1px;
+     background-color: #c5c0c0;
+     border-color: black;
+     color: black;
+     display: flex;
+     justify-content:center ;
+     align-items: center;  
+
+}
 
 
 @media screen and (max-width: 1050px) {
@@ -114,6 +148,7 @@ ul{
         text-align: center;
         background-color: cadetblue;
         transition: 0.1 ease-in;
+       
     }
     .mobile-link li{
             display: grid;

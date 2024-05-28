@@ -5,15 +5,15 @@ import { useEffect, useState } from "react";
 
 
 const Visualize = () => {
-  const[user,setUser]= useState([])
-  const [select, setSelect] = useState("month")
+  const[user,setUser]= useState([]);
+  const [select, setSelect] = useState("month");
   const [data] = useRecoilState(dataState);
   const date = new Date();
   const month = date.getMonth();
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
  
-  const monthlyExpenditure = data.filter((item) => parseInt(item.date.slice(5, 7)) === month + 1)
+  const monthlyExpenditure = data.filter((item) => parseInt(item.date.slice(5, 7)) === month + 1);
 
 
   //filter today data
