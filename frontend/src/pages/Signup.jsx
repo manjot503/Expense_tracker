@@ -5,58 +5,58 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:5100/";
 export default function Signup() {
-    const [data,setData]= useState({
-        firstName:"",
-        lastName:"",
-        userName:"",
-        email:"",
-        password:"",
-        confirmPassword:""
+    const [data, setData] = useState({
+        firstName: "",
+        lastName: "",
+        userName: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
     })
-    const[errors,setErrors]=useState({})
+    const [errors, setErrors] = useState({})
     const navigate = useNavigate()
 
-    const handleChange = (e)=>{
-        const{name,value}=e.target;
+    const handleChange = (e) => {
+        const { name, value } = e.target;
         setData({
             ...data,
-            [name]:value
+            [name]: value
         })
-        setErrors({...errors,[name]:""})
-        
-    }
-    function capitalizeFirstLetter(e){
-      return e.charAt(0).toUpperCase +e.slice(1);
-    }
-    
-    const handleSubmit= async(e)=>{
-        e.preventDefault()
-        let errors ={}
+        setErrors({ ...errors, [name]: "" })
 
-        if(!data.firstName ){
-            errors.firstName ="FirstName is required"
+    }
+    function capitalizeFirstLetter(e) {
+        return e.charAt(0).toUpperCase + e.slice(1);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        let errors = {}
+
+        if (!data.firstName) {
+            errors.firstName = "FirstName is required"
         }
-        if(!data.lastName){
-            errors.lastName="LastName is required"
+        if (!data.lastName) {
+            errors.lastName = "LastName is required"
         }
-        if(!data.userName){
-            errors.userName="UserName is required"
+        if (!data.userName) {
+            errors.userName = "UserName is required"
         }
-        if(!data.email){
-            errors.email="Email is required"
-        }else if (!/\S+@\S+\.\S+/.test(data.email)) {
+        if (!data.email) {
+            errors.email = "Email is required"
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
             errors.email = "Email address is invalid";
         }
-        if(!data.password){
-            errors.password="Password is required"
-        } else if(data.password.length<5){
+        if (!data.password) {
+            errors.password = "Password is required"
+        } else if (data.password.length < 5) {
             errors.password = "Password must be at least 5 characters long";
 
-        }      
-        if(!data.confirmPassword){
-            errors.confirmPassword="ConfirmPassword is required"
-        }else if(data.confirmPassword !== data.password){
-            errors.confirmPassword="Passwords do not match"
+        }
+        if (!data.confirmPassword) {
+            errors.confirmPassword = "ConfirmPassword is required"
+        } else if (data.confirmPassword !== data.password) {
+            errors.confirmPassword = "Passwords do not match"
         }
         setErrors(errors)
 
@@ -64,60 +64,58 @@ export default function Signup() {
             try {
                 const response = await axios.post("user/signup", data);
                 console.log(response.data.token);
-                localStorage.setItem("token",response.data.token)
-                localStorage.setItem("name",response.data.name)
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("name", response.data.name)
                 setData({
-                    firstName:'',
-                    lastName:'',
+                    firstName: '',
+                    lastName: '',
                     userName: '',
                     email: '',
                     password: '',
                     confirmPassword: ''
                 });
-                
+
                 navigate("/");
             } catch (error) {
                 console.error("Error:", error);
-                alert("email already exist")         
+                alert("email already exist")
             }
 
         }
     };
-    
-  return (
-    <>
-    <div className='formcentersignup'>
-        <form onSubmit={handleSubmit} className='form'>
-      <LabeledInput type="text" name="firstName" placeholder="FirstName" onChange={handleChange} value={data.firstName} error={errors.firstName} letter={capitalizeFirstLetter} />
 
-      <LabeledInput type="text" name="lastName" placeholder="LastName" onChange={handleChange} value={data.lastName} error={errors.lastName} />
+    return (
+        <>
+            <div className='formcentersignup'>
+                <form onSubmit={handleSubmit} className='form'>
+                    <LabeledInput type="text" name="firstName" placeholder="FirstName" onChange={handleChange} value={data.firstName} error={errors.firstName} letter={capitalizeFirstLetter} />
 
-      <LabeledInput type="text" name="userName" placeholder="UserName" onChange={handleChange} value={data.userName} error={errors.userName} />
+                    <LabeledInput type="text" name="lastName" placeholder="LastName" onChange={handleChange} value={data.lastName} error={errors.lastName} />
 
-      <LabeledInput type="email" name="email" placeholder="Email" onChange={handleChange} value={data.email} error={errors.email} />
+                    <LabeledInput type="text" name="userName" placeholder="UserName" onChange={handleChange} value={data.userName} error={errors.userName} />
 
-      <LabeledInput type="password" name="password" placeholder="Password" onChange={handleChange} value={data.password} error={errors.password} />
+                    <LabeledInput type="email" name="email" placeholder="Email" onChange={handleChange} value={data.email} error={errors.email} />
 
-      <LabeledInput type="password" name="confirmPassword" placeholder="ConfirmPassword" onChange={handleChange} value={data.confirmPassword} error={errors.confirmPassword} />
-      <div>
-      <button type='submit'className='formbuttton' >Submit</button>
-         {/* <button className='formbutttonn'>Allready login</button> */}
-         
-</div>
-   
-        </form>
-    </div>
-    </>
-  )
+                    <LabeledInput type="password" name="password" placeholder="Password" onChange={handleChange} value={data.password} error={errors.password} />
+
+                    <LabeledInput type="password" name="confirmPassword" placeholder="ConfirmPassword" onChange={handleChange} value={data.confirmPassword} error={errors.confirmPassword} />
+                    <div>
+                        <button type='submit' className='formbuttton' >Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </>
+    )
 }
 
 
-function LabeledInput({type,placeholder,name,value,onChange,error,letter}){
-    return(
+function LabeledInput({ type, placeholder, name, value, onChange, error, letter }) {
+    return (
         <label>
             <h6 className='formname'>{placeholder}</h6>
-        <input className="forminput" type={type} placeholder={placeholder} name={name} value={value} onChange={onChange}lletter={letter} ></input>
-        {error && <span className='error'>{error}</span>}
+            <input className="forminput" type={type} placeholder={placeholder} name={name} value={value} onChange={onChange} lletter={letter} ></input>
+            {error && <span className='error'>{error}</span>}
         </label>
     )
 }

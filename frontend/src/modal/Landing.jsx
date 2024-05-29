@@ -15,13 +15,6 @@ export default function Landing() {
     if(page === "add") return(<><Navbar /><Add /></>)
     if(page === "visualize") return(<><Navbar /><Visualize /></>)
     if(page === "insights") return(<><Navbar /><Insights /></>)
-
-  
-
-
-   
-    
-    
   return (
     <Home ></Home>
   )

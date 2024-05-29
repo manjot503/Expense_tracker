@@ -48,7 +48,6 @@ export default function Otp() {
        }
 
        <button className='formbuttton'>Next</button>
-
     </form>
   </div>
   </>

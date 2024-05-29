@@ -18,15 +18,12 @@
 }
 .text{
   display: flex;
+  justify-content: space-between;
+  text-align: center;
+ 
+  margin-top: 1.5rem;
 }
-ul{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-   
-    margin-top: 1.5rem;
-   
-}
+
 .linav{
     
    
@@ -92,28 +89,28 @@ ul{
     display: none
 }
 .logoutmob{
-    padding: 0px 0px 50px;
-    /* position: absolute; */
-    border-radius: 5px;
+   border-radius: 5px;
     cursor: pointer;
   background-color:darkred;
-  height: 3rem;
+  width: 60%;
+  height: 2rem;
   font-size: 1rem;
   border-color: darkred;
+  
+  justify-content: center;
 
 }
-
 .avtarmob{
     border: 2px solid black;
     border-radius: 50%;
-    width: 40px;
+    width: 40%;
     height: 40px;
      font-size: 25px;
      padding: 1px 1px 1px;
      background-color: #c5c0c0;
      border-color: black;
      color: black;
-     display: flex;
+     
      justify-content:center ;
      align-items: center;  
 
@@ -140,7 +137,6 @@ ul{
     }
     .mobile{
         display: inline;
-    
         position: fixed;
         right: 0px;
         width: 15%;
@@ -218,7 +214,7 @@ ul{
     
 
 }
-@media screen and(max-width:300px) {
+@media screen and(min-width:300px) {
     .Navbar{
         height: 10px;
         transition: 0.2 ease-in-out;
@@ -243,9 +239,23 @@ ul{
     /* margin-top: -6px; */
     transition: 0.2s ease-in-out;
    }
-   .mobile-link li{
-    display: grid;
-margin: 2px 30px;
+   .mobile{
+    display: inline;
+    position: fixed;
+    right: 0px;
+    width: 15%;
+    height: 100%;
+    text-align: center;
+    background-color: cadetblue;
+    transition: 0.1 ease-in;
+   
+}
+.mobile-link li{
+        display: grid;
+    margin: 20px 30px;
+}
+.mobile-link ul{
+    display: inline;
 }
     
 }

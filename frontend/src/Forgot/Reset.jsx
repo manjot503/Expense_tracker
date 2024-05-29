@@ -25,8 +25,6 @@ export default function Resetpass(){
         e.preventDefault();
 
         let errors = {};
-       
-     
         if (!formData.password) {
             errors.password = "Password is required";
         } else if (formData.password.length < 5) {

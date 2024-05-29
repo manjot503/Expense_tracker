@@ -20,8 +20,7 @@ import {
     Legend
   );
   
-  
-  export default function Linechart({LineChartData}){
+   export default function Linechart({LineChartData}){
       const labelData = Array.from(LineChartData.keys())
       const labels = labelData.reverse();
       const LineData = Array.from(LineChartData.values())
@@ -31,7 +30,7 @@ import {
           datasets: [
             {
               label: "Dataset 1",
-              data: LineData.reverse(),
+              data: LineData.reverse(), 
               borderColor: "rgb(255, 99, 132)",
               backgroundColor: "rgba(255, 99, 132, 0.5)",
             },

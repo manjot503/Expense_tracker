@@ -194,3 +194,16 @@ tbody {
   
     
 }
+
+.line{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+   
+}
+.line1{
+    border: 1px solid black;
+    height: 50%;
+    width: 60%;
+}

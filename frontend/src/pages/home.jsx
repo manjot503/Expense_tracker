@@ -24,7 +24,7 @@ export default function Home() {
                 }
 
             });
-            //  setAdd(response.data.expense);
+           
 
             const sortedDate = response.data.expense.sort((a, b) => {
                 const dateA = new Date(a.date);
@@ -55,7 +55,6 @@ export default function Home() {
         }
 
         setFiltereddata(filtered)
-
 
         let temptotal = 0;
         filtered.forEach((item) => {

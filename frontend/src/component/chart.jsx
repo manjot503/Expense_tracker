@@ -6,8 +6,7 @@ import './one.css';
 Chart.register(ArcElement,Legend)
 
 const Doughnutchart = ({values,title})=>{
-
-    const data = {
+const data = {
       labels: [
         'Spend',
         'Earn'

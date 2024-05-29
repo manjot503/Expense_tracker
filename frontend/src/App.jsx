@@ -14,31 +14,25 @@ import Resetpass from "./Forgot/Reset";
 
 export default function App() {
   return (
-<>
-        <RecoilRoot>
-      
+    <>
+      <RecoilRoot>
+
         <BrowserRouter>
+          <Routes>
 
-         <Routes>
-        <Route path="/landing" element={<Landing />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/add" element={<Add />}></Route>
-        <Route path="/visualize" element={<Visualize />}></Route>
-       <Route path="/signup" element={<Signup />}></Route>
-       <Route path="/" element={<Login />}></Route>
-       <Route path="/email" element={<Email />}></Route>
-       <Route path="/otp" element={<Otp />}></Route>
-       <Route path="/reset" element={<Resetpass />}></Route>
-       
+            <Route path="/landing" element={<Landing />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/add" element={<Add />}></Route>
+            <Route path="/visualize" element={<Visualize />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/" element={<Login />}></Route>
+            <Route path="/email" element={<Email />}></Route>
+            <Route path="/otp" element={<Otp />}></Route>
+            <Route path="/reset" element={<Resetpass />}></Route>
 
-
-
-
-
-
-      </Routes>
-       </BrowserRouter>
-        </RecoilRoot>
-</>
-  );
+          </Routes>
+        </BrowserRouter>
+      </RecoilRoot>
+    </>
+  );
 }

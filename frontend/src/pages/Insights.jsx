@@ -27,7 +27,7 @@ export default function Insights() {
    let tempMonth = month + 1;
   let tempDay = day;
   let LineChartData = new Map();
-  // while (tempMonth === month + 1) 
+ 
     while(tempMonth>=month || (tempMonth === month && day >= tempDay )){
     let tempSpend = 0;
 
@@ -43,7 +43,7 @@ export default function Insights() {
       }
     });
 LineChartData.set(tempDay,Math.abs(tempSpend))
-  // LineChartData[`${tempDay}`] = tempSpend
+
   if(tempDay === 1){
     tempDay = MonthLength[tempMonth-1]
     tempMonth --;
@@ -52,13 +52,12 @@ LineChartData.set(tempDay,Math.abs(tempSpend))
     tempDay--;
   }
   }
-
-  
-  console.log(LineChartData)
-
-  return (
-    <div>
+ return (
+    <div className='line'>
+      <div className='line1'>
       <Linechart  LineChartData={LineChartData} />
+      </div>
+      
     </div>
   )
 }

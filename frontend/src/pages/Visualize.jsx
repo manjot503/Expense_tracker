@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 
 
 const Visualize = () => {
-  const[user,setUser]= useState([]);
+  const [user, setUser] = useState([]);
   const [select, setSelect] = useState("month");
   const [data] = useRecoilState(dataState);
   const date = new Date();
   const month = date.getMonth();
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
- 
+
   const monthlyExpenditure = data.filter((item) => parseInt(item.date.slice(5, 7)) === month + 1);
 
 
@@ -35,77 +35,75 @@ const Visualize = () => {
     &&
     (parseInt(item.date.slice(8, 10)) <= today))
 
-    let spend = 0;
-    let earn = 0;
+  let spend = 0;
+  let earn = 0;
 
- 
-    if (select === "month") {
-   
-      monthlyExpenditure.forEach((item) => {
-        if (item.money > 0) {
-          earn += item.money
-        }
-        else {
-          spend += item.money
-        }
-      });
-  
-      if (Math.abs(spend) < earn) {
-        earn += spend
+
+  if (select === "month") {
+
+    monthlyExpenditure.forEach((item) => {
+      if (item.money > 0) {
+        earn += item.money
       }
       else {
-        earn = 0
+        spend += item.money
       }
-  
-    }
-    else if (select === "today") {
-    
-      todayData.forEach((item) => {
-        if (item.money > 0) {
-          earn += item.money
-        }
-        else {
-          spend += item.money
-        }
-      });
-  
-      if (Math.abs(spend) < earn) {
-        earn += spend
-      }
-      else {
-        earn = 0
-      }
+    });
+
+    if (Math.abs(spend) < earn) {
+      earn += spend
     }
     else {
-      weekData.forEach((item) => {
-        if (item.money > 0) {
-          earn += item.money
-        }
-        else {
-          spend += item.money
-        }
-      });
-  
-      if (Math.abs(spend) < earn) {
-        earn += spend
+      earn = 0
+    }
+
+  }
+  else if (select === "today") {
+
+    todayData.forEach((item) => {
+      if (item.money > 0) {
+        earn += item.money
       }
       else {
-        earn = 0
+        spend += item.money
       }
-    }
-  
+    });
 
-  useEffect(()=>{
-  if(select === "month"){
-    setUser(monthlyExpenditure)
+    if (Math.abs(spend) < earn) {
+      earn += spend
+    }
+    else {
+      earn = 0
+    }
   }
-  else if(select === "today" ){
-    setUser(todayData)
+  else {
+    weekData.forEach((item) => {
+      if (item.money > 0) {
+        earn += item.money
+      }
+      else {
+        spend += item.money
+      }
+    });
+
+    if (Math.abs(spend) < earn) {
+      earn += spend
+    }
+    else {
+      earn = 0
+    }
   }
-  else{
-    setUser(weekData)
-  }
-  },[select])
+ useEffect(() => {
+    if (select === "month") {
+      setUser(monthlyExpenditure)
+    }
+    else if (select === "today") {
+      setUser(todayData)
+    }
+    else {
+      setUser(weekData)
+    }
+  }, [select])
 
   const values = {
     Spend: spend,
@@ -116,8 +114,7 @@ const Visualize = () => {
   const spendp = (Math.abs(spend) / total) * 100;
   const earnp = (earn / total) * 100;
 
-
-  return (
+return (
     <>
       <div className="viusualizeNav">
         <div className="tablevius">
@@ -139,55 +136,51 @@ const Visualize = () => {
         <div >
           <Doughnutchart values={values} title="current month expenditure" />
         </div >
-        
- {
-  user && user.length >0 ?(
-    <div><h2>Spend percentage : {spendp.toFixed(0)}%</h2></div>
-  ):null
- }
-        
+
         {
-  user && user.length >0 ?(
-    <div><h2>Earn percentage : {earnp.toFixed(0)}%</h2></div>
-  ):null
- }
-         
-  
+          user && user.length > 0 ? (
+            <div><h2>Spend percentage : {spendp.toFixed(0)}%</h2></div>
+          ) : null
+        }
+
+        {
+          user && user.length > 0 ? (
+            <div><h2>Earn percentage : {earnp.toFixed(0)}%</h2></div>
+          ) : null
+        }
+
+
       </div>
+     <div className="formcenter">
 
+        {user && user.length > 0 ? (
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="th">SNo.</th>
+                <th className="th">Title</th>
+                <th className="th">Expense</th>
+                <th className="th">Date</th>
+              </tr>
 
-      <div className="formcenter">
-   
-    {user && user.length > 0 ? (
-   <table className="table">
-       <thead>
-           <tr>
-           <th className="th">SNo.</th>
-           <th className="th">Title</th>
-           <th className="th">Expense</th>
-           <th className="th">Date</th>
-           </tr>
-           
-       </thead>
-   <tbody>
-{
-user.map((item,index)=>(
-   <tr key={index}>
-      <td className="th"> {index+1}</td>
-      <td className="th"> {item.title}</td>
-      <td className={`${item.money <0 ? 'negative': 'positive'}`} > <b>{item.money}</b></td>
-      <td className="th "> {item.date?.slice(0,10)}</td>
-   </tr>
-))
-}
-</tbody>
-
-</table>
-
-):
-(<h4>No data found</h4>)
-}
-</div>
+            </thead>
+            <tbody>
+              {
+                user.map((item, index) => (
+                  <tr key={index}>
+                    <td className="th"> {index + 1}</td>
+                    <td className="th"> {item.title}</td>
+                    <td className={`${item.money < 0 ? 'negative' : 'positive'}`} > <b>{item.money}</b></td>
+                    <td className="th "> {item.date?.slice(0, 10)}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+         </table>
+         ) :
+          (<h4>No data found</h4>)
+        }
+      </div>
     </>
   )
 }
